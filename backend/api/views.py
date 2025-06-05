@@ -2,8 +2,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework_simplejwt.tokens import RefreshToken
+from .product_models import ProductListing, ProductPhoto
+from .serializers import ProductListingSerializer, ProductPhotoSerializer
 
 # Helper to get tokens
 def get_tokens_for_user(user):
@@ -38,3 +40,12 @@ def login_user(request):
         return Response({'message': 'Login successful', 'tokens': tokens})
     else:
         return Response({'error': 'Invalid credentials'}, status=401)
+
+# Product ViewSets
+class ProductListingViewSet(viewsets.ModelViewSet):
+    queryset = ProductListing.objects.all()
+    serializer_class = ProductListingSerializer
+
+class ProductPhotoViewSet(viewsets.ModelViewSet):
+    queryset = ProductPhoto.objects.all()
+    serializer_class = ProductPhotoSerializer
