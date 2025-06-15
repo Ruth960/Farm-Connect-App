@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xrd6dqx0^0ko#98*ak0zxuj4au4kn0lt04=f-d-*!241979p4$'
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.100.17']  # ✅ your PC's IP
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.100.17', '10.0.2.2']  # ✅ your PC's IP and Android emulator
 
 # Application definition
 INSTALLED_APPS = [
